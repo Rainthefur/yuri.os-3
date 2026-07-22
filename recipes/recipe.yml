@@ -18,7 +18,3 @@ modules:
             - com.valvesoftware.Steam
             - com.discordapp.Discord
             - com.spotify.Client
-
-  - type: script
-    snippets:
-      - "curl -sL https://githubusercontent.com > /usr/local/bin/ani-cli && chmod +x /usr/local/bin/ani-cli"
