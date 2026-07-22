@@ -21,4 +21,4 @@ modules:
 
   - type: script
     snippets:
-      - "curl -sL https://githubusercontent.com > /usr/bin/ani-cli && chmod +x /usr/bin/ani-cli"
+      - "curl -sL https://githubusercontent.com > /usr/local/bin/ani-cli && chmod +x /usr/local/bin/ani-cli"
