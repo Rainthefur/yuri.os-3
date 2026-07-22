@@ -2,12 +2,32 @@ name: Generate Installer ISO
 on:
   workflow_dispatch:
 
+permissions:
+  contents: read
+  packages: read
+
 jobs:
   build-iso:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+
+      - name: Log in to GitHub Container Registry (using GHCR_PAT if provided)
+        if: ${{ secrets.GHCR_PAT != '' }}
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GHCR_PAT }}
+
+      - name: Log in to GitHub Container Registry (using GITHUB_TOKEN fallback)
+        if: ${{ secrets.GHCR_PAT == '' }}
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate Offline ISO Installer File
         uses: blue-build/github-action@v1.11
