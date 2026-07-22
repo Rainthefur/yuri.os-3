@@ -1,15 +1,17 @@
 name: Generate Installer ISO
 on:
-  workflow_run:
-    workflows: ["build"]
-    types: [completed]
   workflow_dispatch:
 
 jobs:
   build-iso:
     runs-on: ubuntu-latest
     steps:
-      - name: Generate Offline ISO File
-        uses: blue-build/apps@v1
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Generate Offline ISO Installer File
+        uses: blue-build/github-action@v1.11
         with:
           recipe: 'recipes/recipe.yml'
+          cosign_private_key: ${{ secrets.SIGNING_SECRET }}
+          build_opts: "--no-sign"
