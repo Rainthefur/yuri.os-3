@@ -1,7 +1,7 @@
 # Custom Yuri OS Gaming Blueprint
 name: yuri-gaming-os
 description: A customized Madoka Magica themed Bazzite gaming distribution.
-image-version: "${{ matrix.major_version }}" 
+image-version: 44 
 base-image: ghcr.io/ublue-os/bazzite-nvidia
 
 modules:
