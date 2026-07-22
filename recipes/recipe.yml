@@ -1,5 +1,5 @@
 # Custom Yuri OS Gaming Blueprint
-name: yuri.os
+name: yuri-gaming-os
 description: A customized Madoka Magica themed Bazzite gaming distribution.
 image-version: 40
 base-image: ghcr.io/ublue-os/bazzite-nvidia
@@ -12,10 +12,12 @@ modules:
       - aria2
 
   - type: default-flatpaks
-    install:
-      - com.valvesoftware.Steam
-      - com.discordapp.Discord
-      - com.spotify.Client
+    configurations:
+      - system:
+          install:
+            - com.valvesoftware.Steam
+            - com.discordapp.Discord
+            - com.spotify.Client
 
   - type: script
     snippets:
