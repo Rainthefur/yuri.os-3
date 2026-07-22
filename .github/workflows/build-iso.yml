@@ -13,4 +13,4 @@ jobs:
         uses: blue-build/github-action@v1.11
         with:
           recipe: 'recipe.yml'
-          build_opts: "--no-sign"
+          build_opts: "--no-sign --tag 44"
