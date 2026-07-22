@@ -1,0 +1,15 @@
+name: Generate Installer ISO
+on:
+  workflow_run:
+    workflows: ["build"]
+    types: [completed]
+  workflow_dispatch:
+
+jobs:
+  build-iso:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate Offline ISO File
+        uses: blue-build/apps@v1
+        with:
+          recipe: 'recipes/recipe.yml'
