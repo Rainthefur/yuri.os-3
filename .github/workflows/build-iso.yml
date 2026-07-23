@@ -14,3 +14,4 @@ jobs:
         with:
           recipe: 'recipe.yml'
           build_opts: "--no-sign"
+          installer_lookup: true
