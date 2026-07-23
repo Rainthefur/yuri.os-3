@@ -7,6 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+      packages: read
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -16,6 +17,7 @@ jobs:
         with:
           image_name: 'yuri-gaming-os'
           image_tag: 'latest'
-          registry: 'ghcr.io/rainthefur'
+          registry: 'ghcr.io'
+          registry_namespace: 'rainthefur'
           iso_name: 'yuri-gaming-os.iso'
-          version: '44'
+          version: '41'
