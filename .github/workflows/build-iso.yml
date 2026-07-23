@@ -15,9 +15,8 @@ jobs:
       - name: Package Bootable ISO File
         uses: jasonn3/build-container-installer@v1.4.0
         with:
-          image_name: 'yuri-gaming-os'
+          base_registry: 'ghcr.io'
+          base_image: 'rainthefur/yuri-gaming-os'
           image_tag: 'latest'
-          registry: 'ghcr.io'
-          registry_namespace: 'rainthefur'
           iso_name: 'yuri-gaming-os.iso'
           version: '41'
