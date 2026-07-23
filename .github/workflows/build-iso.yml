@@ -5,13 +5,17 @@ on:
 jobs:
   build-iso:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Generate Offline ISO Installer File
-        uses: blue-build/github-action@v1.11
+      - name: Package Bootable ISO File
+        uses: jasonn3/build-container-installer@v1.4.0
         with:
-          recipe: 'recipe.yml'
-          build_opts: "--no-sign"
-          iso_name: "yuri-gaming-os"
+          image_name: 'yuri-gaming-os'
+          image_tag: 'latest'
+          registry: 'ghcr.io/rainthefur'
+          iso_name: 'yuri-gaming-os.iso'
+          version: '44'
